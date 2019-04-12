@@ -191,7 +191,7 @@ def find_all_folders(remotepath, sftp):
     folders = []
     for f in sftp.listdir_attr(remotepath):
         if S_ISDIR(f.st_mode):
-            folders.append(""f.filename)
+            folders.append(f.filename)
     for folder in folders:
         new_remotepath = "{}/{}".format(remotepath, folder)
         more_folders = find_all_folders(new_remotepath, sftp)
